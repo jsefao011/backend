@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--Medo de la configuracion de la base datos-->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/portal</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="show_sql">true</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+
+        <!--Importante -->
+        <!-- configuracion del indexado de la base de datos-->
+        <property name="hibernate.search.default.directory_provider">filesystem</property>
+        <property name="hibernate.search.default.indexBase">/var/lucene/indexes</property>
+        <!--  creacion del esquema de la basede datos-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.liquid.restApi.datos.model.Persona"/>
+        <mapping class="com.liquid.restApi.datos.model.Departamento"/>
+        <mapping class="com.liquid.restApi.datos.model.Distrito"/>
+        <mapping class="com.liquid.restApi.datos.model.EstadoCivil"/>
+        <mapping class="com.liquid.restApi.datos.model.NivelAcademico"/>
+        <mapping class="com.liquid.restApi.datos.model.Provincia"/>
+        <mapping class="com.liquid.restApi.datos.model.Religion"/>
+        <mapping class="com.liquid.restApi.datos.model.Sexo"/>
+    </session-factory>
+</hibernate-configuration>
